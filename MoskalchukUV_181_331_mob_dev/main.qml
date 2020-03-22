@@ -2,9 +2,13 @@ import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
+import QtQuick.Window 2.12
+
 import "Labs"
 
 ApplicationWindow {
+    signal signalMakeRequest()
+
     id: mainWindow //если к объекту не планируется обращаться, можно без id
     visible: true
     width: 320
@@ -14,7 +18,15 @@ ApplicationWindow {
     //Material.theme: Material.Dark
     //Material.accent: "#808080"
 
+    Connections {
+        target: httpController
 
+        function onSignalSendToQML(pString) {
+            /*console.log("*** Вызван обработчик");
+            swipeView.currentIndex = 3;*/
+            textarea.append(pString);
+        }
+    }
 
     SwipeView {
         id: swipeView
@@ -31,6 +43,39 @@ ApplicationWindow {
         Lab2 { }
 
         Lab3 { }
+
+        //Lab4 { }
+
+        Page {
+
+            GridLayout {
+                anchors.fill: parent
+                columns: 1
+                rows: 3
+                TextArea {
+                    id: textarea
+                    Layout.alignment: Qt.AlignHCenter
+                    Layout.fillHeight: true
+                    Layout.fillWidth: true
+                    placeholderText: "textarea"
+                }
+                Button {
+                    Layout.alignment: Qt.AlignHCenter
+                    text: "button"
+                    onClicked: {
+                        signalMakeRequest();
+                    }
+                }
+                TextField {
+                    Layout.alignment: Qt.AlignHCenter
+                    placeholderText: "textfield"
+
+                    readOnly: true
+                }
+
+            }
+
+        }
 
 
         /*Page { //страница демонстрации layout
@@ -174,27 +219,36 @@ ApplicationWindow {
                     drawer.close()
                 }
             }
+
+            Button {
+                text: "Lab4"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 3
+                    drawer.close()
+                }
+            }
         }
     }
 
 
 
-    header: ToolBar { //---------------HEADER
+    header: Rectangle { //---------------HEADER
         id: toolBar
-        //Material.foreground: "#fff"
-        Material.background: "#4a76a8"
+        //width: parent.width
+        Material.foreground: "#fff"
+        color: "#4a76a8"
+        height: 15 * Screen.pixelDensity
+
 
         ToolButton {
             id: toolButton
             width: 55
-            Image {
-                id: vk
-                anchors.centerIn: toolButton
-                source: "images/vk.png"
-                width: 40
-                height: 32
-                smooth: true
-            }
+            anchors.centerIn: toolButton
+            icon.source: "images/vk.svg"
+            icon.color: "#fff"
+            //flat: true
 
             onClicked: {
                 drawer.open()
@@ -229,15 +283,19 @@ ApplicationWindow {
             text: qsTr("⋮")
 
             font.pixelSize: 25
+            //flat: true
             //font.family: "Arial"
             anchors.right: parent.right
+            //anchors.bottom: parent.bottom
+
+
         }
     }//----------HEADER--end
 
 
 
 
-    footer: TabBar { //---------------FOOTER
+    /*footer: TabBar { //---------------FOOTER
         id: tabBar
         currentIndex: swipeView.currentIndex
         Material.foreground: "#ccc"
@@ -254,5 +312,5 @@ ApplicationWindow {
         TabButton {
             text: qsTr("lab3")
         }
-    }//---------------FOOTER--end
+    }*///---------------FOOTER--end
 }

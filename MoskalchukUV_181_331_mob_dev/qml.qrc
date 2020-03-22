@@ -2,15 +2,17 @@
     <qresource prefix="/">
         <file>main.qml</file>
         <file>qtquickcontrols2.conf</file>
-        <file>images/vk.png</file>
         <file>Labs/Lab1.qml</file>
         <file>Labs/Lab2.qml</file>
         <file>videos/video_lab2.mp4</file>
-        <file>images/pause.png</file>
-        <file>images/play.png</file>
-        <file>images/photo-camera.png</file>
-        <file>images/video-camera.png</file>
-        <file>images/speaker.png</file>
         <file>Labs/Lab3.qml</file>
+        <file>Labs/Lab4.qml</file>
+        <file>images/attach.svg</file>
+        <file>images/vk.svg</file>
+        <file>images/cinema.svg</file>
+        <file>images/pause.svg</file>
+        <file>images/photograph.svg</file>
+        <file>images/play.svg</file>
+        <file>images/speaker.svg</file>
     </qresource>
 </RCC>

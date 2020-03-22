@@ -5,6 +5,6 @@ import QtGraphicalEffects 1.14
 Page {
     id: page3
 
-    Binding { target: headerLabel; property: "text"; value: "Lab3"; when: tabBar.currentIndex === 2}
+    Binding { target: headerLabel; property: "text"; value: "Lab3"; when: swipeView.currentIndex === 2}
 
 }

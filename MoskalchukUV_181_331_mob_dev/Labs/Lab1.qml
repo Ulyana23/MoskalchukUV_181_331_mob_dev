@@ -11,7 +11,7 @@ import QtQuick.Controls.Material 2.12
 
 Page { //-----------------------------------LABA1
 
-    Binding { target: headerLabel; property: "text"; value: "Приложения Qt QML. Элементы GUI."; when: tabBar.currentIndex === 0 }
+    Binding { target: headerLabel; property: "text"; value: "Приложения Qt QML. Элементы GUI."; when: swipeView.currentIndex === 0 }
 
 
         ColumnLayout {

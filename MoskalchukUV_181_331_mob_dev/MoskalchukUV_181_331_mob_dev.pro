@@ -1,4 +1,4 @@
-QT += quick #список подключённых разделов библиотеки QT
+QT += quick network #список подключённых разделов библиотеки QT
 
 CONFIG += c++11 #настройки компиляции
 
@@ -15,7 +15,8 @@ DEFINES += QT_DEPRECATED_WARNINGS #объявление переменных и 
 
 #sources - раздел файлов исходного кода на c++
 SOURCES += \
-        main.cpp
+        main.cpp \
+        qhttpcontroller.cpp
 
 # HEADERS - раздел файлов заголовков c++
 
@@ -34,3 +35,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES +=
+
+HEADERS += \
+    qhttpcontroller.h
