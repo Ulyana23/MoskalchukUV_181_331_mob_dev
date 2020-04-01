@@ -14,5 +14,9 @@
         <file>images/photograph.svg</file>
         <file>images/play.svg</file>
         <file>images/speaker.svg</file>
+        <file>Labs/Lab5.qml</file>
+        <file>images/image_lab3.jpg</file>
+        <file>images/foreground_lab3.png</file>
+        <file>images/mask_lab3.png</file>
     </qresource>
 </RCC>

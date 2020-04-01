@@ -52,12 +52,21 @@ ApplicationWindow {
                 anchors.fill: parent
                 columns: 1
                 rows: 3
-                TextArea {
-                    id: textarea
-                    Layout.alignment: Qt.AlignHCenter
+
+
+                Flickable {
+                    id: flickable
+                    //anchors.fill: parent
+
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    placeholderText: "textarea"
+                    TextArea.flickable: TextArea {
+                        id: textarea
+                        placeholderText: "textarea"
+                        wrapMode: TextArea.Wrap
+                    }
+
+                    ScrollBar.vertical: ScrollBar { }
                 }
                 Button {
                     Layout.alignment: Qt.AlignHCenter
@@ -74,6 +83,10 @@ ApplicationWindow {
                 }
 
             }
+
+        }
+
+        Lab5 {
 
         }
 
@@ -226,6 +239,16 @@ ApplicationWindow {
 
                 onClicked: {
                     swipeView.currentIndex = 3
+                    drawer.close()
+                }
+            }
+
+            Button {
+                text: "Lab5"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 4
                     drawer.close()
                 }
             }

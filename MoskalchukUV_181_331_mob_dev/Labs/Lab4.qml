@@ -8,11 +8,20 @@ Page {
         anchors.fill: parent
         columns: 1
         rows: 3
-        TextArea {
-            id: textarea
-            Layout.alignment: Qt.AlignHCenter
-            placeholderText: "textarea"
+
+        Flickable {
+            id: flickable
+            //anchors.fill: parent
+
+            TextArea.flickable: TextArea {
+                id: textarea
+                placeholderText: "textarea"
+                wrapMode: TextArea.Wrap
+            }
+
+            ScrollBar.vertical: ScrollBar { }
         }
+
         Button {
             Layout.alignment: Qt.AlignHCenter
             text: "button"
