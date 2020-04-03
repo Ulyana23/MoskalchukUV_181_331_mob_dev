@@ -18,15 +18,7 @@ ApplicationWindow {
     //Material.theme: Material.Dark
     //Material.accent: "#808080"
 
-    Connections {
-        target: httpController
 
-        function onSignalSendToQML(pString) {
-            /*console.log("*** Вызван обработчик");
-            swipeView.currentIndex = 3;*/
-            textarea.append(pString);
-        }
-    }
 
     SwipeView {
         id: swipeView
@@ -36,59 +28,15 @@ ApplicationWindow {
 
         font.capitalization: Font.MixedCase
 
-        Lab1 {
-        id: page1
-        }
+        Lab1 { }
 
         Lab2 { }
 
         Lab3 { }
 
-        //Lab4 { }
+        Lab4 { }
 
-        Page {
-
-            GridLayout {
-                anchors.fill: parent
-                columns: 1
-                rows: 3
-
-
-                Flickable {
-                    id: flickable
-                    //anchors.fill: parent
-
-                    Layout.fillHeight: true
-                    Layout.fillWidth: true
-                    TextArea.flickable: TextArea {
-                        id: textarea
-                        placeholderText: "textarea"
-                        wrapMode: TextArea.Wrap
-                    }
-
-                    ScrollBar.vertical: ScrollBar { }
-                }
-                Button {
-                    Layout.alignment: Qt.AlignHCenter
-                    text: "button"
-                    onClicked: {
-                        signalMakeRequest();
-                    }
-                }
-                TextField {
-                    Layout.alignment: Qt.AlignHCenter
-                    placeholderText: "textfield"
-
-                    readOnly: true
-                }
-
-            }
-
-        }
-
-        Lab5 {
-
-        }
+        Lab5 { }
 
 
         /*Page { //страница демонстрации layout

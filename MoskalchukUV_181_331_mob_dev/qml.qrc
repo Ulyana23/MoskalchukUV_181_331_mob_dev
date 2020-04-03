@@ -18,5 +18,9 @@
         <file>images/image_lab3.jpg</file>
         <file>images/foreground_lab3.png</file>
         <file>images/mask_lab3.png</file>
+        <file>images/mask2_lab3.png</file>
+        <file>images/drop.svg</file>
+        <file>images/gauge.svg</file>
+        <file>images/wind.svg</file>
     </qresource>
 </RCC>

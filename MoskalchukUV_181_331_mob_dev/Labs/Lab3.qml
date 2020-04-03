@@ -50,11 +50,15 @@ Page {
 
     }
 
+    //###############################################################################################################
+
     GridLayout {
         id: gl
         anchors.fill: parent
         columns: 2
         rows: 3
+
+        visible: false
 
         Item {
             id: item
@@ -283,8 +287,6 @@ Page {
             anchors.fill: parent
             columns: 2
             rows: 3
-
-            visible: false
 
             Item {
                 id: item1

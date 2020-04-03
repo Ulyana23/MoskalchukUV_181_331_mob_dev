@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QNetworkAccessManager>
+#include <QJsonObject>
 
 class HttpController : public QObject
 {
@@ -16,8 +17,10 @@ public:
 public slots:
     //void SlotFinished(QNetworkReply *reply);
     void GetNetworkValue();
+    QString onPageInfo(QString replyString);
+    QJsonObject otherPage(QString replyString);
 signals:
-    void signalSendToQML(QString pReply);
+    void signalSendToQML(QString pReply, QString temperatureNow, QJsonObject json);
 
 
 };
