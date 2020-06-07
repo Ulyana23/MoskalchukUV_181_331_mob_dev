@@ -2,6 +2,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QQuickView>
+#include <QtWebView>
+#include "model.h"
 
 int main(int argc, char *argv[])
 {
@@ -12,10 +15,12 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv); //добавляет графические сущности; моздаётся базовое приложение с графической областью
     //QApplication - виджеты
-
+    QtWebView::initialize();
 
 
     HttpController httpController;
+    Model model;
+    //Model friendsModel;
 
     httpController.GetNetworkValue();
 
@@ -24,7 +29,11 @@ int main(int argc, char *argv[])
 
 
     QQmlContext * context = engine.rootContext();
+
     context->setContextProperty("httpController", &httpController); //поместить С++ объект в область видимости движка qml
+    context->setContextProperty("friendsModel", &httpController.friendsModel);
+
+
 
     const QUrl url(QStringLiteral("qrc:/main.qml")); //где брать стартовую страницу для движка, преобразование пути стартовой страницы из char в QURL
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

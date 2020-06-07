@@ -411,12 +411,12 @@ Page {
                 icon.height: 20
 
                 onClicked: {
-                    if(captureStatus === false) {
+                    if(captureStatus === true) {
                         camera.imageCapture.captureToLocation("C:/Users/user/photo");
                         startTime = new Date()
                     }
 
-                    if(captureStatus === true) {
+                    if(captureStatus === false) {
                         if (camera.videoRecorder.recorderStatus == CameraRecorder.RecordingStatus) {
                             camera.videoRecorder.stop()
                         }

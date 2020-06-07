@@ -90,6 +90,7 @@ Page {
     GridLayout {
         id: siteWeather
 
+
         anchors.fill: parent
         columns: 1
         rows: 3
@@ -188,7 +189,7 @@ Page {
 
         }
 
-        ColumnLayout {
+       ColumnLayout {
             id: columnLayout
             Layout.leftMargin: 30
 
@@ -209,7 +210,7 @@ Page {
                 spacing: 10
                 Label {
                     id: degreesNow
-                    font.pixelSize: 60
+                    font.pixelSize: 50
                     font.bold: true
 
                 }
@@ -237,7 +238,7 @@ Page {
             id: columnLayout1
             Layout.leftMargin: 30
             Layout.alignment: Qt.AlignTop
-            Layout.topMargin: -80
+            Layout.topMargin: -44
 
             Label {
                 id: windSpeed

@@ -22,5 +22,6 @@
         <file>images/drop.svg</file>
         <file>images/gauge.svg</file>
         <file>images/wind.svg</file>
+        <file>Labs/Lab6.qml</file>
     </qresource>
 </RCC>

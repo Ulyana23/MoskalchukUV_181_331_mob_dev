@@ -2,6 +2,8 @@ import QtQuick 2.14
 import QtQuick.Controls 2.12
 import QtGraphicalEffects 1.14
 import QtQuick.Layouts 1.12
+import QtQuick.Dialogs 1.2
+import QtQuick.Controls.Material 2.12
 
 Page {
     id: page3
@@ -48,6 +50,24 @@ Page {
             }
         }
 
+    }
+
+    ColorDialog {
+        id: colorDialog
+        title: "Please choose a color"
+        onAccepted: {
+            grow.color = colorDialog.color
+
+        }
+    }
+
+    ColorDialog {
+        id: colorDialog1
+        title: "Please choose a color"
+        onAccepted: {
+            grow1.color = colorDialog1.color
+
+        }
     }
 
     //###############################################################################################################
@@ -140,7 +160,8 @@ Page {
                      text: "spread"
                      x: growSamples.x
                  }
-                 implicitWidth: 160
+                 Layout.fillWidth: true
+                 Layout.rightMargin: 10
                  Layout.alignment: Qt.AlignHCenter
                  from: 0.0
                  to: 1.0
@@ -153,7 +174,9 @@ Page {
                      text: "radius"
                      x: growSamples.x
                  }
-                 implicitWidth: 160
+                 Layout.fillWidth: true
+                 Layout.rightMargin: 10
+                 //implicitWidth: 160
                  Layout.alignment: Qt.AlignHCenter
                  from: 0
                  to: 30
@@ -169,14 +192,32 @@ Page {
                      x: growSamples.x
                  }
 
-                 implicitWidth: 160
+                 Layout.fillWidth: true
+                 Layout.rightMargin: 10
                  Layout.alignment: Qt.AlignHCenter
                  from: 0
                  to: 30
                  value: 17
              }
 
-             RowLayout {
+             Button {
+                 text: "Выбрать цвет"
+                 Layout.alignment: Qt.AlignHCenter
+                 font.pixelSize: 11
+                 Layout.fillWidth: true
+                 Layout.rightMargin: 10
+                 Material.background: "#fff"
+                 Material.foreground: "#000"
+
+                 onClicked: {
+                     colorDialog.open()
+                 }
+
+             }
+
+
+
+             /*RowLayout {
                  Layout.alignment : Qt.AlignHCenter
                  RadioButton {
                      id: rb1
@@ -198,7 +239,7 @@ Page {
                          grow.color = "gray"
                      }
                  }
-             }
+             }*/
          }
 
 
@@ -223,7 +264,8 @@ Page {
                     text: "threshold"
                     x: maskThreshold.x
                 }
-                implicitWidth: 160
+                Layout.fillWidth: true
+                Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignHCenter
                 from: 0.0
                 to: 1.0
@@ -236,7 +278,8 @@ Page {
                     text: "spread"
                     x: maskSpread.x
                 }
-                implicitWidth: 160
+                Layout.fillWidth: true
+                Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignHCenter
                 from: 0.0
                 to: 1.0
@@ -263,7 +306,8 @@ Page {
         ComboBox {
            id: blendMode
            font.pixelSize: 13
-           implicitWidth: 160
+           Layout.fillWidth: true
+           Layout.rightMargin: 10
            Layout.column: 1
            Layout.row: 2
            Layout.alignment: Qt.AlignTop
@@ -366,7 +410,8 @@ Page {
                         text: "spread"
                         x: growSamples1.x
                     }
-                    implicitWidth: 160
+                    Layout.fillWidth: true
+                    Layout.rightMargin: 10
                     Layout.alignment: Qt.AlignHCenter
                     from: 0.0
                     to: 1.0
@@ -379,7 +424,8 @@ Page {
                         text: "radius"
                         x: growSamples1.x
                     }
-                    implicitWidth: 160
+                    Layout.fillWidth: true
+                    Layout.rightMargin: 10
                     Layout.alignment: Qt.AlignHCenter
                     from: 0
                     to: 30
@@ -395,14 +441,30 @@ Page {
                         x: growSamples1.x
                     }
 
-                    implicitWidth: 160
+                    Layout.fillWidth: true
+                    Layout.rightMargin: 10
                     Layout.alignment: Qt.AlignHCenter
                     from: 0
                     to: 30
                     value: 17
                 }
 
-                RowLayout {
+                Button {
+                    text: "Выбрать цвет"
+                    Layout.alignment: Qt.AlignHCenter
+                    font.pixelSize: 11
+                    Layout.fillWidth: true
+                    Layout.rightMargin: 10
+                    Material.background: "#fff"
+                    Material.foreground: "#000"
+
+                    onClicked: {
+                        colorDialog1.open()
+                    }
+
+                }
+
+                /*RowLayout {
                     Layout.alignment: Qt.AlignHCenter
                     RadioButton {
                         id: rb11
@@ -424,7 +486,7 @@ Page {
                             grow1.color = "gray"
                         }
                     }
-                }
+                }*/
             }
 
             Blend {
@@ -441,7 +503,8 @@ Page {
              ComboBox {
                 id: blendMode1
                 font.pixelSize: 13
-                implicitWidth: 160
+                Layout.fillWidth: true
+                Layout.rightMargin: 10
                 Layout.column: 1
                 Layout.row: 1
 
@@ -475,7 +538,8 @@ Page {
                         text: "threshold"
                         x: maskThreshold1.x
                     }
-                    implicitWidth: 160
+                    Layout.fillWidth: true
+                    Layout.rightMargin: 10
                     Layout.alignment: Qt.AlignHCenter
                     from: 0.0
                     to: 1.0
@@ -488,7 +552,8 @@ Page {
                         text: "spread"
                         x: maskSpread1.x
                     }
-                    implicitWidth: 160
+                    Layout.fillWidth: true
+                    Layout.rightMargin: 10
                     Layout.alignment: Qt.AlignHCenter
                     from: 0.0
                     to: 1.0

@@ -38,6 +38,7 @@ ApplicationWindow {
 
         Lab5 { }
 
+        Lab6 { }
 
         /*Page { //страница демонстрации layout
 
@@ -197,6 +198,16 @@ ApplicationWindow {
 
                 onClicked: {
                     swipeView.currentIndex = 4
+                    drawer.close()
+                }
+            }
+
+            Button {
+                text: "Lab6"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 5
                     drawer.close()
                 }
             }
