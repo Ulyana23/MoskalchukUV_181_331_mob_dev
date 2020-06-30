@@ -9,6 +9,9 @@ Page {
     id: page_6
 
     property bool menuOpen: false
+    property bool auth: false
+
+    Binding { target: headerLabel; property: "text"; value: "Список"; when: swipeView.currentIndex === 5}
 
     Connections {
         target: points
@@ -23,6 +26,15 @@ Page {
                        }
                     }
     }
+
+    Connections {
+        target: httpController
+
+        function onSignalLab6() {
+                auth = true;
+            }
+
+        }
 
 
     Menu {
@@ -56,6 +68,37 @@ Page {
             visible: grid.visible
         }
 
+        MenuItem {
+            text: "Обновить"
+            font.pixelSize: 13
+            onTriggered: {
+                if (auth == false) popupError.open();
+                else {
+                    httpController.restRequest();
+                    httpController.writeDB();
+                    httpController.readDB();
+                }
+            }
+        }
+
+    }
+
+    ColumnLayout {
+        id: columnText
+        anchors.fill: parent
+        Layout.alignment: Qt.AlignCenter
+        Text {
+            id: text
+            text: "База данных пуста. Пожалуйства, обновите данные."
+            font.pixelSize: 15
+            font.bold: true
+            wrapMode: Text.WordWrap
+            Layout.fillWidth: true
+            horizontalAlignment: Text.AlignHCenter
+        }
+
+        visible: list.count == 0 ? true : false;
+
     }
 
     ListView {
@@ -64,6 +107,9 @@ Page {
         spacing: 5
 
         ScrollBar.vertical: ScrollBar {
+            id: scroll
+            visible: list.count == 0 ? false : true;
+
             policy: ScrollBar.AsNeeded
 
             contentItem: Rectangle {
@@ -338,6 +384,7 @@ Page {
         }*/
     }
 
+
     /*#################################################################################################
      *#################################################################################################
      */
@@ -351,6 +398,7 @@ Page {
 
         ScrollBar.vertical: ScrollBar {
             policy: ScrollBar.AsNeeded
+            visible: grid.count == 0 ? false : true;
 
             contentItem: Rectangle {
                     color: "#ccc"
@@ -608,6 +656,47 @@ Page {
         }
 
         model: friendsModel
+
+    }
+
+    Popup {
+        id: popupError
+
+        width: 270
+        height: 150
+        parent: Overlay.overlay
+
+        x: Math.round((parent.width - width) / 2)
+        y: Math.round((parent.height - height) / 2)
+        modal: true
+        focus: true
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutside
+
+        ColumnLayout {
+            anchors.fill: parent
+            Text {
+                id: textError
+                text: "Пожалуйста, авторизуйтесь на странице 5."
+                font.pixelSize: 15
+                Layout.preferredWidth: parent.width
+                wrapMode: Label.WordWrap
+
+                horizontalAlignment: Text.AlignHCenter
+            }
+
+            Button {
+                id: buttonClose
+                text: "Закрыть"
+                font.pixelSize: 12
+                Material.background: "#4a76a8"
+                Material.foreground: "#fff"
+
+                Layout.fillWidth: true
+                onClicked: {
+                    popupError.close();
+                }
+            }
+        }
 
     }
 

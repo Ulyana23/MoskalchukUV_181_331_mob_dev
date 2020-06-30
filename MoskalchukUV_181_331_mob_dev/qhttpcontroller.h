@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QNetworkAccessManager>
 #include <QJsonObject>
+#include <QJsonArray>
 #include "model.h"
 
 class HttpController : public QObject
@@ -14,6 +15,12 @@ public:
     QNetworkAccessManager * nam;
     QString token;
     Model friendsModel;
+    double roundTo(double inpValue, int inpCount);
+
+private:
+    double menStatistic;
+    double womenStatistic;
+    QJsonArray itemsArray;
 
 
 public slots:
@@ -23,7 +30,10 @@ public slots:
     QJsonObject otherPage(QString replyString);
     void restRequest();
     QByteArray SlotGetHttps(QString url);
-
+    QString getHTML();
+    QString getCSS();
+    void sendTextareaToFileHTML(QByteArray textareaData);
+    void sendTextareaToFileCSS(QByteArray textareaData);
 
 
     QByteArray SlotGetHttpsWithHeader();
@@ -42,20 +52,25 @@ public slots:
             int size = end - st;
             index = index.mid(st, size);
             token = index;
+            emit signalLab6();
             qDebug() << index;
             restRequest();
 
 
             return index;
         }
-
-
     }
+
+    void writeDB();
+    bool readDB();
+
 
 
 
 signals:
     void signalSendToQML(QString pReply, QString temperatureNow, QJsonObject json);
+    void signalStatisticToQML(double men, double women);
+    void signalLab6();
 
 
 };

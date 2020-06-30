@@ -23,5 +23,15 @@
         <file>images/gauge.svg</file>
         <file>images/wind.svg</file>
         <file>Labs/Lab6.qml</file>
+        <file>Labs/Lab7.qml</file>
+        <file>Labs/Lab9.qml</file>
+        <file>Labs/Lab10.qml</file>
+        <file>images/cloud_left.png</file>
+        <file>images/cloud_right.png</file>
+        <file>images/rectangle.png</file>
+        <file>images/rectangle.jpg</file>
+        <file>images/send.svg</file>
+        <file>Labs/AdditionalLab.qml</file>
+        <file>Labs/AdditionalLabEditor.qml</file>
     </qresource>
 </RCC>

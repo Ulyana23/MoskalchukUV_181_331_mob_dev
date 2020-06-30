@@ -10,7 +10,7 @@ Page {
 
     property bool menuOpen: false
 
-    Binding { target: headerLabel; property: "text"; value: "Lab3"; when: swipeView.currentIndex === 2}
+    Binding { target: headerLabel; property: "text"; value: "Эффекты"; when: swipeView.currentIndex === 2}
 
     Connections {
         target: points

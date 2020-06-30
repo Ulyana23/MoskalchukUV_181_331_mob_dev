@@ -7,7 +7,7 @@ import QtWebView 1.1
 Page {
     id: page5
 
-
+    Binding { target: headerLabel; property: "text"; value: "Получение токена"; when: swipeView.currentIndex === 4}
 
     GridLayout {
         anchors.fill: parent
@@ -30,11 +30,29 @@ Page {
                 + "&v=5.37"
                 + "&state=123457";
                 btAuth.visible = false;
+                success.visible = false;
+                error.visible = false;
 
             }
         }
     }
 
+
+    Label {
+        id: success
+        text: "Вы успешно авторизовались"
+        color: "green"
+
+        visible: false
+    }
+
+    Label {
+        id: error
+        text: "Авторизоваться не получилось, попробуйте ещё раз."
+        color: "red"
+
+        visible: false
+    }
 
         Popup {
             id: popup
@@ -129,6 +147,17 @@ Page {
                 console.log(val)
                 accessToken.text = val
                 popup.open()
+                browser.visible = false
+                btAuth.visible = true
+                success.visible = true
+                error.visible = false
+            }
+
+            else  {
+                browser.visible = false
+                btAuth.visible = true
+                success.visible = false
+                error.visible = true
             }
 
             //var token = String.prototype.match.call(BrUsl, /\#(?:access_token)\=([\S\s]*?)\&/)[1];

@@ -40,6 +40,18 @@ ApplicationWindow {
 
         Lab6 { }
 
+        Lab7 { }
+
+        Lab9 { }
+
+        Lab10 { }
+
+
+
+        AdditionalLab { }
+
+        AdditionalLabEditor { }
+
         /*Page { //страница демонстрации layout
 
             //Binding { target: headerLabel; property: "text"; value: if(tabBar.currentIndex === 1) "Lab2"; }
@@ -211,6 +223,57 @@ ApplicationWindow {
                     drawer.close()
                 }
             }
+
+            Button {
+                text: "Lab7"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 6
+                    drawer.close()
+                }
+            }
+
+            Button {
+                text: "Lab9"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 7
+                    drawer.close()
+                }
+            }
+
+            Button {
+                text: "Lab10"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 8
+                    drawer.close()
+                }
+            }
+
+            Button {
+                text: "AdditionalLab"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 9
+                    drawer.close()
+                }
+            }
+
+            Button {
+                text: "AdditionalLabEditor"
+                flat: true
+
+                onClicked: {
+                    swipeView.currentIndex = 10
+                    drawer.close()
+                }
+            }
+
         }
     }
 

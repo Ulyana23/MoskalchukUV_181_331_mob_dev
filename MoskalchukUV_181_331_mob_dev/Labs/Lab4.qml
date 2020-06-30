@@ -130,6 +130,7 @@ Page {
 
             ScrollBar.vertical: ScrollBar { }
         }
+
         Button {
             Layout.alignment: Qt.AlignHCenter
             text: "вывести на экран"

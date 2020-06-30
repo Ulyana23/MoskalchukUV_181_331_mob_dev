@@ -1,4 +1,4 @@
-QT += quick network webview svg #список подключённых разделов библиотеки QT
+QT += quick network webview svg widgets charts sql #список подключённых разделов библиотеки QT
 
 CONFIG += c++11 #настройки компиляции
 
@@ -33,6 +33,7 @@ else: android {
 
 #sources - раздел файлов исходного кода на c++
 SOURCES += \
+        cryptocontroller.cpp \
         model.cpp \
         qhttpcontroller.cpp \
         main.cpp
@@ -55,6 +56,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
+    cryptocontroller.h \
     model.h \
     qhttpcontroller.h
 android: include(C:/Users/User/AppData/Local/Android/Sdk/android_openssl/openssl.pri)
